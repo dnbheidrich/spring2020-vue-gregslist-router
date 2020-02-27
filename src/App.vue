@@ -8,18 +8,29 @@
               class="nav-link"
               :to="{ name: 'Home' }"
               :class="{
-                active: $route.name == 'Home' || $route.name == 'CarDetails'
-              }"
+                active: $route.name == 'Home' || $route.name == 'CarDetails'}"
+              >Home</router-link
+            >
+            </li>
+          <li class="nav-item">
+            <router-link
+              class="nav-link"
+              :to="{ name: 'Cars' }"
+              :class="{
+                active: $route.name == 'Cars' || $route.name == 'CarDetails'}"
               >Cars</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link :to="{ name: 'Home' }" class="nav-link"
-              >Jorbs</router-link
+            <router-link   class="nav-link"
+              :to="{ name: 'Jobs' }"
+              :class="{
+                active: $route.name == 'Jobs'|| $route.name == 'JobDetails'}"
+              >Jobs</router-link
             >
           </li>
           <li class="nav-item">
-            <router-link :to="{ name: 'Home' }" class="nav-link"
+            <router-link :to="{ name: 'Houses' || $route.name == 'HouseDetails'}" class="nav-link"
               >Houses</router-link
             >
           </li>

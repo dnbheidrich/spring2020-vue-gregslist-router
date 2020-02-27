@@ -1,10 +1,21 @@
 <template>
   <div class="car-details">
+   <div class="row text-center">
+<div class="col-12">
+
     <h1>CAR DETAILS .VUE</h1>
     <div v-if="details._id">
-      {{ details }}
+      <h3>
+      Year - {{ details.year }}
+      </h3>
+      <p>
+
+      {{ details.description }}
+      </p>
+    <button @click="deleteJob">delete</button>
+</div>
     </div>
-    <button @click="deleteCar">delete</button>
+</div>
   </div>
 </template>
 

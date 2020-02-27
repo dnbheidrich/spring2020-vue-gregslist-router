@@ -1,40 +1,24 @@
 <template>
-  <div class="home container-fluid">
-    <div class="row">
-      <div class="col-12 text-right">
-        <button v-if="!carForm" @click="carForm = true" class="btn btn-success">
-          Add-Car
-        </button>
-        <button v-else @click="carForm = false" class="btn btn-danger">
-          cancel
-        </button>
-      </div>
-      <div class="col-12">
-        <create-car v-if="carForm" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <cars />
-      </div>
-    </div>
+  <div class="Home">
+test
+
   </div>
 </template>
 
-<script>
-import Cars from "@/components/Cars";
-import CreateCar from "@/components/CreateCar";
 
+<script>
 export default {
-  name: "Home",
-  data() {
-    return {
-      carForm: false
-    };
+  name: 'Home',
+  data(){
+    return {}
   },
-  components: {
-    Cars,
-    CreateCar
-  }
-};
+  computed:{},
+  methods:{},
+  components:{}
+}
 </script>
+
+
+<style scoped>
+
+</style>

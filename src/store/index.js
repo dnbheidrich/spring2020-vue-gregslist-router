@@ -3,8 +3,16 @@ import Vuex from "vuex";
 import axios from "axios";
 import router from "../router";
 
-let _api = axios.create({
+let _apiCar = axios.create({
   baseURL: "//bcw-sandbox.herokuapp.com/api/cars",
+  timeout: 3000
+});
+let _apiJob = axios.create({
+  baseURL: "//bcw-sandbox.herokuapp.com/api/jobs",
+  timeout: 3000
+});
+let _apiHouse = axios.create({
+  baseURL: "//bcw-sandbox.herokuapp.com/api/houses",
   timeout: 3000
 });
 
@@ -13,7 +21,11 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     cars: [],
-    activeCar: {}
+    activeCar: {},
+    jobs:[],
+    activeJob:{},
+    houses:[],
+    activeHouses: {}
   },
   mutations: {
     //NOTE first argument of a mutationn is always the state
@@ -29,16 +41,37 @@ export default new Vuex.Store({
     },
     setActiveCar(state, car) {
       state.activeCar = car;
+    },
+    setJobs(state,jobs) {
+      state.jobs =jobs;
+    },
+    addJob(state,job) {
+      state.jobs.push(job);
+    },
+    removeJob(state, id) {
+      state.jobs = state.jobs.filter(c => c._id != id);
+    },
+    setActiveJob(state,job) {
+      state.activeJob = job;
+    },
+    setHouses(state, house) {
+      state.houses = house;
+    },
+    addHouse(state, house) {
+      state.houses.push(house);
+    },
+    removeHouse(state, id) {
+      state.houses = state.houses.filter(c => c._id != id);
+    },
+    setActiveHouse(state, house) {
+      state.activeJob = house;
     }
   },
   actions: {
-    //NOTE the first argument of an action is always an object, destructuring allows us to only grab what we need
     async getCars({ commit, dispatch }) {
       try {
-        let res = await _api.get("");
-        //NOTE Commits trigger mutations by name (first arguement), and provide a payload (second argument)
-        // you may only pass two arguments the name of the mutation and the payload
-        commit("setCars", res.data.data); //NOTE the res.data.data is the sandbox api way of providing data
+        let res = await _apiCar.get("");
+      commit("setCars", res.data.data);
       } catch (error) {
         console.error(error);
       }
@@ -46,20 +79,18 @@ export default new Vuex.Store({
 
     async getCarById({ commit, dispatch }, id) {
       try {
-        let res = await _api.get(id);
-        commit("setActiveCar", res.data.data); //NOTE the res.data.data is the sandbox api way of providing data
+        let res = await _apiCar.get(id);
+        commit("setActiveCar", res.data.data); 
       } catch (error) {
         console.error(error);
-        // NOTE Push changes the route to the provided route by name
         router.push({ name: "Home" });
       }
     },
     async createCar({ commit, dispatch }, newCar) {
       try {
-        let res = await _api.post("", newCar);
+        let res = await _apiCar.post("", newCar);
         // dispatch("getCars");
         commit("addCar", res.data.data);
-        // NOTE after the car is created, send them to the car details page for that car
         router.push({
           name: "CarDetails",
           params: { carId: res.data.data._id }
@@ -70,7 +101,7 @@ export default new Vuex.Store({
     },
     async deleteCar({ commit, dispatch }, carId) {
       try {
-        let res = await _api.delete(carId);
+        let res = await _apiCar.delete(carId);
         // dispatch("getCars");
         commit("removeCar", carId);
         commit("setActiveCar", {});
@@ -80,6 +111,90 @@ export default new Vuex.Store({
     },
     setActiveCar({ commit }, car) {
       commit("setActiveCar", car);
+    },
+    async getJobs({ commit, dispatch }) {
+      try {
+        let res = await _apiJob.get("");
+        commit("setJobs", res.data.data);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async getJobById({ commit, dispatch }, id) {
+      try {
+        let res = await _apiJob.get(id);
+        commit("setActiveJob", res.data.data);
+      } catch (error) {
+        console.error(error);
+        router.push({ name: "Home" });
+      }
+    },
+    async createJob({ commit, dispatch }, newJob) {
+      try {
+        let res = await _apiJob.post("", newJob);
+        commit("addJob", res.data.data);
+        router.push({
+          name: "JobDetails",
+          params: { jobId: res.data.data._id }
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async deleteJob({ commit, dispatch }, jobId) {
+      try {
+        let res = await _apiJob.delete(jobId);
+        // dispatch("getJobs");
+        commit("removeJob", jobId);
+        commit("setActiveJob", {});
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    setActiveJob({ commit }, job) {
+      commit("setActiveJob", job);
+    },
+    async getHouses({ commit, dispatch }) {
+      try {
+        let res = await _apiHouse.get("");
+        commit("setHouses", res.data.data);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async getHouseById({ commit, dispatch }, id) {
+      try {
+        let res = await _apiHouse.get(id);
+        commit("setActiveHouse", res.data.data);
+      } catch (error) {
+        console.error(error);
+        router.push({ name: "Home" });
+      }
+    },
+    async createHouse({ commit, dispatch }, newHouse) {
+      try {
+        let res = await _apiHouse.post("", newHouse);
+        commit("addHouse", res.data.data);
+        router.push({
+          name: "HouseDetails",
+          params: { houseId: res.data.data._id }
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async deleteHouse({ commit, dispatch }, houseId) {
+      try {
+        let res = await _apiHouse.delete(houseId);
+        // dispatch("getHouses");
+        commit("removeHouse", houseId);
+        commit("setActiveHouse", {});
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    setActiveHouse({ commit }, house) {
+      commit("setActiveHouse", house);
     }
   }
 });
