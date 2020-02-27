@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import CarDetails from "../views/CarDetails.vue";
 import JobDetails from "../views/JobDetails.vue";
+import HouseDetails from "../views/HouseDetails.vue";
 import Cars from "../views/Cars.vue";
 import Jobs from "../views/Jobs.vue";
 import Houses from "../views/Houses.vue";
@@ -36,9 +37,14 @@ const routes = [
     component: JobDetails
   },
   {
-    path: "/Houses",
+    path: "/houses",
     name: "Houses",
     component: Houses
+  },
+  {
+    path: "/houses/:housesId",
+    name: "HouseDetails",
+    component: HouseDetails
   },
   
 
