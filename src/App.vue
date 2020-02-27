@@ -44,7 +44,7 @@
 <style>
 #app {
   min-height: 100vh;
-  /* background-color: green; */
+  background-color: orange;
 }
 
 .active {

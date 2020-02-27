@@ -14,7 +14,7 @@
 
       {{ details.description }}
       </p>
-    <button @click="deleteJob">delete</button>
+    <button @click="deleteCar">delete</button>
 </div>
     </div>
 </div>

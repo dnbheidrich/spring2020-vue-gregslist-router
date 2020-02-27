@@ -7,7 +7,7 @@
         <img :src="houseData.imgUrl" class="card-img-top" />
       </router-link>
       <div class="card-body">
-        <h5 class="card-title">{{ houseData.bedrooms }} - {{ houseData.bathrooms }}</h5>
+        <h5 class="card-title">Beds {{ houseData.bedrooms }} - Baths{{ houseData.bathrooms }}</h5>
       <button @click="deleteHouse">Delete</button>
       </div>
     </div>

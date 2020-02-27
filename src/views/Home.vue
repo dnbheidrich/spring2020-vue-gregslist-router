@@ -1,6 +1,10 @@
 <template>
-  <div class="Home">
-test
+  <div class="Home container-fluid">
+    <div class="row text-center">
+      <div class="col-12">
+     <h1>Welcome to Gregslist! </h1>  
+      </div>
+    </div>
 
   </div>
 </template>
