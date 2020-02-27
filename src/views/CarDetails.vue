@@ -5,6 +5,8 @@
 
     <h1>CAR DETAILS .VUE</h1>
     <div v-if="details._id">
+        <img :src="details.imgUrl" class="img-top" />
+
       <h3>
       Year - {{ details.year }}
       </h3>

@@ -3,10 +3,11 @@
 <div class="row text-center">
 <div class="col-12">
 
-    <h1>HOUSE DETAILS .VUE</h1>
+    <h1>House DETAILS .VUE</h1>
     <div v-if="details._id">
+      <img :src="details.imgUrl" class="img-top" />
       <h3>
-      Hours - {{ details.levels }}
+      Levels - {{ details.levels }}
       </h3>
       <p>
 

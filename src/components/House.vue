@@ -8,8 +8,8 @@
       </router-link>
       <div class="card-body">
         <h5 class="card-title">{{ houseData.bedrooms }} - {{ houseData.bathrooms }}</h5>
-      </div>
       <button @click="deleteHouse">Delete</button>
+      </div>
     </div>
   </div>
 </template>

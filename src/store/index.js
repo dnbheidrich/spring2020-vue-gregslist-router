@@ -25,7 +25,7 @@ export default new Vuex.Store({
     jobs:[],
     activeJob:{},
     houses:[],
-    activeHouses: {}
+    activeHouse: {}
   },
   mutations: {
     //NOTE first argument of a mutationn is always the state
@@ -64,7 +64,7 @@ export default new Vuex.Store({
       state.houses = state.houses.filter(c => c._id != id);
     },
     setActiveHouse(state, house) {
-      state.activeJob = house;
+      state.activeHouse = house;
     }
   },
   actions: {
