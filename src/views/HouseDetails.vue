@@ -6,13 +6,13 @@
     <h1>HOUSE DETAILS .VUE</h1>
     <div v-if="details._id">
       <h3>
-      Hours - {{ details.hours }}
+      Hours - {{ details.levels }}
       </h3>
       <p>
 
       {{ details.description }}
       </p>
-    <button @click="deleteJob">delete</button>
+    <button @click="deleteHouse">delete</button>
 </div>
     </div>
 </div>
@@ -21,25 +21,25 @@
 
 <script>
 export default {
-  name: "JobDetails",
+  name: "HouseDetails",
   mounted() {
-    if (!this.$store.state.jobs.length) {
-      this.$store.dispatch("getJobById", this.$route.params.jobId);
+    if (!this.$store.state.houses.length) {
+      this.$store.dispatch("getHouseById", this.$route.params.houseId);
     } else {
       this.$store.dispatch(
-        "setActiveJob",
-        this.$store.state.jobs.find(c => c._id == this.$route.params.jobId)
+        "setActiveHouse",
+        this.$store.state.houses.find(c => c._id == this.$route.params.houseId)
       );
     }
   },
   computed: {
     details() {
-      return this.$store.state.activeJob;
+      return this.$store.state.activeHouse;
     }
   },
   methods: {
-    deleteJob() {
-      this.$store.dispatch("deleteJob", this.details._id);
+    deleteHouse() {
+      this.$store.dispatch("deleteHouse", this.details._id);
     }
   }
 };
