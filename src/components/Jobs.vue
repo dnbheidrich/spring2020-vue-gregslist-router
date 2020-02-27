@@ -1,13 +1,11 @@
 <template>
   <div class="jobs row text-center">
-    <div class="col-12">
     <job
       v-for="(jobObj, index) in jobs"
       :key="jobObj._id"
       :jobData="jobObj"
       :jobIndex="index"
     />
-    </div>
   </div>
 </template>
 

@@ -3,23 +3,23 @@
     <form @submit.prevent="createHouse">
       <input
         type="text"
-        name="make"
-        placeholder="Make..."
-        v-model="newHouse.make"
+        name="bedrooms"
+        placeholder="Bedrooms..."
+        v-model="newHouse.bedrooms"
         required
       />
       <input
         type="text"
-        name="model"
-        placeholder="model..."
-        v-model="newHouse.model"
+        name="bathrooms"
+        placeholder="bathrooms..."
+        v-model="newHouse.bathrooms"
         required
       />
       <input
         type="number"
-        name="year"
-        placeholder="year..."
-        v-model="newHouse.year"
+        name="levels"
+        placeholder="levels..."
+        v-model="newHouse.levels"
         required
       />
       <input
@@ -27,6 +27,13 @@
         name="price"
         placeholder="price..."
         v-model="newHouse.price"
+        required
+      />
+       <input
+        type="text"
+        name="year"
+        placeholder="year..."
+        v-model="newHouse.year"
         required
       />
       <input
@@ -56,7 +63,7 @@ export default {
     };
   },
   methods: {
-    createHousenewHouse() {
+    createHouse() {
       this.$store.dispatch("createHouse", this.newHouse);
     }
   }

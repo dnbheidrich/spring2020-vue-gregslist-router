@@ -1,16 +1,15 @@
 <template>
-  <div class="job col-3 text-center">
+  <div class="car col-3">
     <div class="card">
+      
+      <div class="card-body">
+        <h5 class="card-title">{{ jobData.jobTitle }} - {{ jobData.company }}</h5>
+      <button @click="deleteJob">Delete</button>
       <router-link
         :to="{ name: 'JobDetails', params: { jobId: this.jobData._id } }">
-        <button>Details</button>
-        <!-- <img :src="jobData.imgUrl" class="card-img-top" /> -->
+       <button>Details</button>
       </router-link>
-      <div class="card-body">
-        <h5 class="card-title">{{ jobData.jobTitle }} - {{ jobData.company }} {{jobData.rate}}</h5>
       </div>
-      <button @click="deleteJob">Delete</button>
-      
     </div>
   </div>
 </template>

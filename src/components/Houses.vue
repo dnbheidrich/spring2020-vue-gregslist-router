@@ -1,13 +1,11 @@
 <template>
   <div class="houses row text-center">
-    <div class="col-12">
     <house
       v-for="(houseObj, index) in houses"
       :key="houseObj._id"
       :houseData="houseObj"
       :houseIndex="index"
     />
-    </div>
   </div>
 </template>
 

@@ -13,7 +13,7 @@
         <create-house v-if="houseForm" />
       </div>
     </div>
-    <div class="row">
+    <div class="row text-center">
       <div class="col-12">
         <houses />
       </div>

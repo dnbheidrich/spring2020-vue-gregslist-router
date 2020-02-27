@@ -1,5 +1,5 @@
 <template>
-  <div class="car col-3">
+  <div class="house col-3">
     <div class="card">
       <router-link
         :to="{ name: 'HouseDetails', params: { houseId: this.houseData._id } }"
@@ -7,8 +7,7 @@
         <img :src="houseData.imgUrl" class="card-img-top" />
       </router-link>
       <div class="card-body">
-        <h5 class="card-title">Bedrooms {{ houseData.bedrooms }} -   Bathrooms {{ houseData.bathrooms }}</h5>
-      
+        <h5 class="card-title">{{ houseData.bedrooms }} - {{ houseData.bathrooms }}</h5>
       </div>
       <button @click="deleteHouse">Delete</button>
     </div>
