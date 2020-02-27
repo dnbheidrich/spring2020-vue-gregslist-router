@@ -46,10 +46,6 @@ const routes = [
     name: "HouseDetails",
     component: HouseDetails
   },
-  
-
-  
-  
   {
     // NOTE sends user back to home on bad address
     path: "*",
