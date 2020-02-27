@@ -2,8 +2,8 @@
   <div class="car col-3">
     <div class="card">
       
-      <div class="card-body">
-        <h5 class="card-title">Title: {{ jobData.jobTitle }} - Company: {{ jobData.company }}</h5>
+      <div class="card-body bg-dark">
+        <h5 class="card-title text-white">Title: {{ jobData.jobTitle }} - Company: {{ jobData.company }}</h5>
       <button @click="deleteJob">Delete</button>
       <router-link
         :to="{ name: 'JobDetails', params: { jobId: this.jobData._id } }">

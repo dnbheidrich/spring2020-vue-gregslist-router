@@ -6,10 +6,9 @@
       >
         <img :src="carData.imgUrl" class="card-img-top" />
       </router-link>
-      <div class="card-body">
-        <h5 class="card-title">{{ carData.make }} - {{ carData.model }}</h5>
+      <div class="card-body bg-dark">
+        <h5 class="card-title title-white">{{ carData.make }} - {{ carData.model }}</h5><button @click="deleteCar">Delete</button>
       </div>
-      <button @click="deleteCar">Delete</button>
     </div>
   </div>
 </template>

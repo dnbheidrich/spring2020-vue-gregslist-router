@@ -1,5 +1,5 @@
 <template>
-  <div class="cars row">
+  <div class="cars row text-center">
     <!-- NOTE Props are data passed from parent to child component -->
     <div class="col-12">
       <label for="filter-price">Max Price</label>
