@@ -7,7 +7,7 @@
         <img :src="carData.imgUrl" class="card-img-top" />
       </router-link>
       <div class="card-body bg-dark">
-        <h5 class="card-title title-white">{{ carData.make }} - {{ carData.model }}</h5><button @click="deleteCar">Delete</button>
+        <h5 class="card-title text-white">{{ carData.make }} - {{ carData.model }}</h5><button @click="deleteCar">Delete</button>
       </div>
     </div>
   </div>
