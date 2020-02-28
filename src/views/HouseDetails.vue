@@ -10,7 +10,7 @@
       Levels - {{ details.levels }}
       </h3>
       <p>
-
+      ${{ details.price }}
       {{ details.description }}
       </p>
     <button @click="deleteHouse">delete</button>

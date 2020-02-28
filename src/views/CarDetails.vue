@@ -11,7 +11,7 @@
       Year - {{ details.year }}
       </h3>
       <p>
-
+      ${{ details.price }}
       {{ details.description }}
       </p>
     <button @click="deleteCar">delete</button>
